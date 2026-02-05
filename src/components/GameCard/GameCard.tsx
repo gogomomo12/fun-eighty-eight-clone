@@ -87,7 +87,7 @@ export const GameCard = memo(({ game }: GameCardProps) => {
       </div>
 
       {/* Game Name */}
-      <div className="px-3 py-2.5">
+      <div className="p-2">
         <p className="text-sm font-medium text-gray-800 truncate">{game.name}</p>
       </div>
     </div>

@@ -14,14 +14,14 @@ export const LoadMore = ({
   const percentage = Math.round((currentCount / totalCount) * 100);
 
   return (
-    <div className="px-4 py-8 flex flex-col items-center">
+    <div className="px-4 py-6 flex flex-col items-center">
       {/* Counter */}
-      <p className="text-gray-600 text-sm mb-3">
+      <p className="text-gray-600 text-sm mb-2">
         {currentCount} / {totalCount.toLocaleString()}
       </p>
 
       {/* Progress Bar */}
-      <div className="w-full max-w-xs h-1.5 bg-gray-200 rounded-full mb-5 overflow-hidden">
+      <div className="w-full max-w-xs h-1 bg-gray-200 rounded-full mb-4 overflow-hidden">
         <div
           className="h-full bg-primary rounded-full transition-all duration-300"
           style={{ width: `${percentage}%` }}
