@@ -69,9 +69,9 @@ export const ProviderFilter = ({
   const displayedProviders = showAll ? providers : providers.slice(0, 6);
 
   return (
-    <div className="bg-gray-50 px-4 py-3">
+    <div className="bg-gray-50 px-4 py-4">
       {/* Header */}
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -109,12 +109,12 @@ export const ProviderFilter = ({
       {/* Provider Chips */}
       <div
         ref={scrollContainerRef}
-        className="flex gap-2 overflow-x-auto hide-scrollbar pb-1"
+        className="flex gap-2.5 overflow-x-auto hide-scrollbar pb-1"
       >
         {/* All Providers Button */}
         <button
           onClick={() => onProviderSelect(null)}
-          className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold transition-all shadow-sm ${
+          className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm ${
             selectedProvider === null
               ? 'bg-primary text-white shadow-primary/30'
               : 'bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary'
@@ -130,7 +130,7 @@ export const ProviderFilter = ({
           <button
             key={provider.id}
             onClick={() => handleProviderClick(provider.id)}
-            className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold transition-all shadow-sm ${
+            className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm ${
               selectedProvider === provider.id
                 ? 'bg-primary text-white shadow-primary/30'
                 : 'bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary'

@@ -24,11 +24,11 @@ export const CategoryTabs = ({
 
   return (
     <div className="bg-white shadow-sm">
-      <div className="flex overflow-x-auto hide-scrollbar">
+      <div className="flex overflow-x-auto hide-scrollbar px-2">
         {/* Search Button */}
         <button
           onClick={onSearchClick}
-          className={`shrink-0 flex flex-col items-center justify-center px-4 py-2 min-w-16 transition-colors border-r border-gray-100 ${
+          className={`shrink-0 flex flex-col items-center justify-center px-4 py-3 min-w-18 transition-colors border-r border-gray-100 ${
             isSearchOpen ? 'text-primary' : 'text-gray-500 hover:text-primary'
           }`}
         >
@@ -52,7 +52,7 @@ export const CategoryTabs = ({
           <button
             key={tab.id}
             onClick={() => handleTabClick(tab.id)}
-            className={`shrink-0 flex flex-col items-center justify-center px-3 py-2 min-w-16 relative transition-colors ${
+            className={`shrink-0 flex flex-col items-center justify-center px-4 py-3 min-w-18 relative transition-colors ${
               selectedCategory === tab.id
                 ? 'text-primary'
                 : 'text-gray-500 hover:text-gray-700'
