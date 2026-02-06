@@ -7,7 +7,7 @@ import { FavoritesProvider } from './context/FavoritesContext';
 // Components
 import { Header } from './components/Header/Header';
 import { BannerCarousel } from './components/Banner/BannerCarousel';
-import { ProviderFilter } from './components/ProviderFilter/ProviderFilter';
+import { GameProviders } from './components/GameProviders/GameProviders';
 import { CategoryTabs } from './components/CategoryTabs/CategoryTabs';
 import { SearchBar } from './components/SearchBar/SearchBar';
 import { GameGrid } from './components/GameGrid/GameGrid';
@@ -84,6 +84,12 @@ function AppContent() {
       {/* Banner Carousel */}
       <BannerCarousel />
 
+      {/* Game Providers Section */}
+      <GameProviders
+        selectedProvider={selectedProvider}
+        onProviderSelect={handleProviderSelect}
+      />
+
       {/* Category Tabs */}
       <CategoryTabs
         selectedCategory={selectedCategory}
@@ -97,12 +103,6 @@ function AppContent() {
         value={searchQuery}
         onChange={handleSearchChange}
         isOpen={isSearchOpen}
-      />
-
-      {/* Provider Filter */}
-      <ProviderFilter
-        selectedProvider={selectedProvider}
-        onProviderSelect={handleProviderSelect}
       />
 
       {/* Game Grid */}

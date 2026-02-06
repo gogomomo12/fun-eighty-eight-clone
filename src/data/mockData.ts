@@ -235,11 +235,36 @@ export const gamesData: Game[] = [
 ];
 
 export const providersData: Provider[] = [
+  { id: 'kiron', name: 'KIRON', gameCount: 28 },
+  { id: 'microgaming', name: 'Microgaming', gameCount: 289 },
+  { id: 'mplay', name: 'mplay', gameCount: 20 },
+  { id: 'onyxgaming', name: 'ONYX GAMING', gameCount: 19 },
+  { id: 'onetouch', name: 'OneTouch', gameCount: 95 },
+  { id: 'ortiz', name: 'Ortiz', gameCount: 18 },
+  { id: '1x2gaming', name: '1x2 gaming', gameCount: 45 },
+  { id: '3oaks', name: '3 OAKS GAMING', gameCount: 67 },
+  { id: 'aspect', name: 'ASPECT GAMING', gameCount: 32 },
+  { id: 'atmosfera', name: 'ATMOSFERA SLOT LAB', gameCount: 24 },
+  { id: 'belatra', name: 'BELATRA', gameCount: 58 },
   { id: 'bgaming', name: 'BGAMING', gameCount: 199 },
   { id: 'bombay', name: 'BOMBAY', gameCount: 43 },
   { id: 'betgames', name: 'betgames', gameCount: 36 },
+  { id: 'blueprint', name: 'blueprint GAMING', gameCount: 112 },
+  { id: 'booming', name: 'BOOMING GAMES', gameCount: 78 },
+  { id: 'caleta', name: 'Caleta', gameCount: 41 },
+  { id: 'creedroomz', name: 'creedroomz', gameCount: 15 },
+  { id: 'evoplay', name: 'EVOPLAY', gameCount: 134 },
+  { id: 'endorphina', name: 'endorphina', gameCount: 89 },
   { id: 'pragmatic', name: 'Pragmatic Play', gameCount: 156 },
   { id: 'pgsoft', name: 'PG Soft', gameCount: 89 },
+  { id: 'netent', name: 'NetEnt', gameCount: 201 },
+  { id: 'playngo', name: "Play'n GO", gameCount: 178 },
+  { id: 'redtiger', name: 'Red Tiger', gameCount: 145 },
+  { id: 'habanero', name: 'Habanero', gameCount: 167 },
+  { id: 'spadegaming', name: 'Spade Gaming', gameCount: 98 },
+  { id: 'jili', name: 'JILI', gameCount: 76 },
+  { id: 'fachai', name: 'FA CHAI', gameCount: 54 },
+  { id: 'cq9', name: 'CQ9', gameCount: 123 },
 ];
 
 export const bannersData: Banner[] = [

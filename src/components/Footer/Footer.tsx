@@ -31,7 +31,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0a1628] text-primary pt-8 pb-52">
+    <footer className="bg-[#0a1628] text-primary pt-8 pb-20">
       {/* Links Section */}
       <div className="px-4 grid grid-cols-2 gap-6 mb-8">
         {/* Information */}
@@ -186,8 +186,6 @@ export const Footer = () => {
         </p>
       </div>
 
-      {/* Spacer for bottom navigation */}
-      <div className="h-20" />
     </footer>
   );
 };
