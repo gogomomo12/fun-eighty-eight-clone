@@ -8,7 +8,7 @@ export const SearchBar = ({ value, onChange, isOpen }: SearchBarProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="px-4 py-3 bg-white">
+    <div className="px-4! py-3! bg-white">
       <div className="relative">
         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
           <svg

@@ -52,7 +52,7 @@ export const ProviderFilter = ({
 
   if (isLoading) {
     return (
-      <div className="bg-gray-50 px-4 py-3">
+      <div className="bg-gray-50 px-4! py-4!">
         <div className="flex items-center justify-between mb-3">
           <Skeleton className="h-5 w-32" />
           <Skeleton className="h-6 w-16 rounded" />
@@ -69,7 +69,7 @@ export const ProviderFilter = ({
   const displayedProviders = showAll ? providers : providers.slice(0, 6);
 
   return (
-    <div className="bg-gray-50 px-4 py-3">
+    <div className="bg-gray-50 px-4! py-4!">
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
@@ -81,7 +81,7 @@ export const ProviderFilter = ({
         <div className="flex items-center gap-2">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="text-primary text-xs font-semibold px-2 py-1 rounded hover:bg-primary/10 transition-colors"
+            className="text-primary text-xs font-semibold px-2! py-1! rounded hover:bg-primary/10 transition-colors"
           >
             {showAll ? 'LESS' : 'MORE'}
           </button>
@@ -114,7 +114,7 @@ export const ProviderFilter = ({
         {/* All Providers Button */}
         <button
           onClick={() => onProviderSelect(null)}
-          className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold transition-all shadow-sm ${
+          className={`shrink-0 flex items-center gap-1.5 px-4! py-2! rounded-full text-xs font-semibold transition-all shadow-sm ${
             selectedProvider === null
               ? 'bg-primary text-white shadow-primary/30'
               : 'bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary'
@@ -130,7 +130,7 @@ export const ProviderFilter = ({
           <button
             key={provider.id}
             onClick={() => handleProviderClick(provider.id)}
-            className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold transition-all shadow-sm ${
+            className={`shrink-0 flex items-center gap-1.5 px-4! py-2! rounded-full text-xs font-semibold transition-all shadow-sm ${
               selectedProvider === provider.id
                 ? 'bg-primary text-white shadow-primary/30'
                 : 'bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary'
@@ -138,7 +138,7 @@ export const ProviderFilter = ({
           >
             <span>{provider.name}</span>
             <span
-              className={`px-1.5 py-0.5 rounded-full text-[10px] ${
+              className={`px-1.5! py-0.5! rounded-full text-[10px] ${
                 selectedProvider === provider.id
                   ? 'bg-white/20 text-white'
                   : 'bg-gray-100 text-gray-500'

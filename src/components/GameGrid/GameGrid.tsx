@@ -18,7 +18,7 @@ export const GameGrid = ({ games, loadingState, error, onRetry }: GameGridProps)
   // Error State
   if (loadingState === 'error' || error) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 px-4">
+      <div className="flex flex-col items-center justify-center py-12! px-4!">
         <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
           <svg
             className="w-8 h-8 text-red-500"
@@ -43,7 +43,7 @@ export const GameGrid = ({ games, loadingState, error, onRetry }: GameGridProps)
         {onRetry && (
           <button
             onClick={onRetry}
-            className="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-primary-dark transition-colors"
+            className="bg-primary text-white px-6! py-2! rounded-full font-medium hover:bg-primary-dark transition-colors"
           >
             Retry
           </button>
@@ -55,7 +55,7 @@ export const GameGrid = ({ games, loadingState, error, onRetry }: GameGridProps)
   // Empty State
   if (games.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 px-4">
+      <div className="flex flex-col items-center justify-center py-12! px-4!">
         <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
           <svg
             className="w-8 h-8 text-gray-400"
@@ -83,7 +83,7 @@ export const GameGrid = ({ games, loadingState, error, onRetry }: GameGridProps)
 
   // Success State - Game Grid
   return (
-    <div className="p-4">
+    <div className="p-4!">
       <div className="grid grid-cols-3 gap-3">
         {games.map((game) => (
           <GameCard key={game.id} game={game} />

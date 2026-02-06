@@ -80,14 +80,14 @@ export const GameCard = memo(({ game }: GameCardProps) => {
 
         {/* Jackpot Amount */}
         {game.jackpotAmount && (
-          <div className="absolute bottom-2 left-2 bg-black/70 text-yellow-400 text-xs font-bold px-2 py-1 rounded">
+          <div className="absolute bottom-2 left-2 bg-black/70 text-yellow-400 text-xs font-bold px-2! py-1! rounded">
             {formatJackpot(game.jackpotAmount)}
           </div>
         )}
       </div>
 
       {/* Game Name */}
-      <div className="p-2">
+      <div className="p-3!">
         <p className="text-sm font-medium text-gray-800 truncate">{game.name}</p>
       </div>
     </div>

@@ -79,8 +79,8 @@ export const BannerCarousel = () => {
   }
 
   return (
-    <div className="px-4 py-3">
-      <div className="relative">
+    <div className="!px-3 !py-2 bg-white">
+      <div className="relative !space-y-3">
         {/* Carousel Container */}
         <div
           ref={carouselRef}
@@ -102,7 +102,7 @@ export const BannerCarousel = () => {
                 />
                 {/* Overlay with text */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
-                  <div className="p-4 text-white">
+                  <div className="!p-4 text-white">
                     <p className="text-lg font-bold uppercase">GET A BONUS OF</p>
                     <p className="text-4xl font-bold text-yellow-400">10%</p>
                     <p className="text-sm">ON EVERY DEPOSIT</p>
@@ -114,8 +114,8 @@ export const BannerCarousel = () => {
           ))}
         </div>
 
-        {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-3">
+        {/* Dots Indicator in case if Needed */}
+        {/* <div className="flex justify-center gap-2 mt-3">
           {banners.map((_, index) => (
             <button
               key={index}
@@ -128,7 +128,7 @@ export const BannerCarousel = () => {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
