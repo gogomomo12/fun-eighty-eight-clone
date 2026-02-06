@@ -179,7 +179,12 @@ export const GameProviders = ({
   const [providers, setProviders] = useState<Provider[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
 
   useEffect(() => {
     const loadProviders = async () => {
@@ -208,16 +213,6 @@ export const GameProviders = ({
     };
   }, [showModal]);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 200;
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
-      });
-    }
-  };
-
   const handleProviderClick = (providerId: string) => {
     if (selectedProvider === providerId) {
       onProviderSelect(null);
@@ -226,6 +221,59 @@ export const GameProviders = ({
     }
     setShowModal(false);
   };
+
+  // Drag handlers for mouse
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setIsPaused(true);
+    startXRef.current = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeftRef.current = scrollRef.current.scrollLeft;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5; // Scroll speed multiplier
+    scrollRef.current.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    setTimeout(() => setIsPaused(false), 1000);
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
+      setTimeout(() => setIsPaused(false), 1000);
+    }
+  };
+
+  // Touch handlers for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setIsPaused(true);
+    startXRef.current = e.touches[0].pageX - scrollRef.current.offsetLeft;
+    scrollLeftRef.current = scrollRef.current.scrollLeft;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    scrollRef.current.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    setTimeout(() => setIsPaused(false), 1000);
+  };
+
+  // Get the first 15 providers for the marquee (providers with games)
+  const marqueeProviders = providers.slice(0, 15);
 
   if (isLoading) {
     return (
@@ -249,53 +297,64 @@ export const GameProviders = ({
         {/* Header */}
         <div className="flex items-center justify-between mb-3 px-4">
           <h2 className="text-gray-700 font-medium text-sm">Game Providers</h2>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setShowModal(true)}
-              className="text-primary text-xs font-semibold px-2 py-1 rounded hover:bg-primary/10 transition-colors"
-            >
-              MORE
-            </button>
-            <div className="flex gap-1">
-              <button
-                onClick={() => scroll('left')}
-                className="w-7 h-7 rounded bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={() => scroll('right')}
-                className="w-7 h-7 rounded bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
+          <button
+            onClick={() => setShowModal(true)}
+            className="text-primary text-xs font-semibold px-2 py-1 rounded hover:bg-primary/10 transition-colors"
+          >
+            MORE
+          </button>
         </div>
 
-        {/* Horizontal Scrolling Cards */}
+        {/* Infinite Scrolling Marquee with Drag Support */}
         <div
-          ref={scrollContainerRef}
-          className="flex gap-3 overflow-x-auto hide-scrollbar px-4"
+          ref={scrollRef}
+          className="overflow-x-auto hide-scrollbar cursor-grab active:cursor-grabbing"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          {providers.slice(0, 10).map((provider) => (
-            <button
-              key={provider.id}
-              onClick={() => handleProviderClick(provider.id)}
-              className={`shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg border-2 transition-all ${
-                selectedProvider === provider.id
-                  ? 'border-primary bg-primary/5'
-                  : 'border-gray-100 bg-gray-50 hover:border-primary/50'
-              }`}
-            >
-              <ProviderIcon providerId={provider.id} />
-              <span className="text-[10px] text-gray-400">({provider.gameCount})</span>
-            </button>
-          ))}
+          <div
+            className="flex gap-3 px-4 animate-marquee"
+            style={{
+              width: 'max-content',
+              animationPlayState: isPaused ? 'paused' : 'running',
+            }}
+          >
+            {/* First set of providers */}
+            {marqueeProviders.map((provider) => (
+              <button
+                key={`first-${provider.id}`}
+                onClick={() => handleProviderClick(provider.id)}
+                className={`shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg border-2 transition-all ${
+                  selectedProvider === provider.id
+                    ? 'border-primary bg-primary/5'
+                    : 'border-gray-100 bg-gray-50 hover:border-primary/50'
+                }`}
+              >
+                <ProviderIcon providerId={provider.id} />
+                <span className="text-[10px] text-gray-400">({provider.gameCount})</span>
+              </button>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {marqueeProviders.map((provider) => (
+              <button
+                key={`second-${provider.id}`}
+                onClick={() => handleProviderClick(provider.id)}
+                className={`shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg border-2 transition-all ${
+                  selectedProvider === provider.id
+                    ? 'border-primary bg-primary/5'
+                    : 'border-gray-100 bg-gray-50 hover:border-primary/50'
+                }`}
+              >
+                <ProviderIcon providerId={provider.id} />
+                <span className="text-[10px] text-gray-400">({provider.gameCount})</span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
