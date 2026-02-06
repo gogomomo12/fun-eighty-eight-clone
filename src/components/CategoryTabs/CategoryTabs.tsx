@@ -28,7 +28,7 @@ export const CategoryTabs = ({
         {/* Search Button */}
         <button
           onClick={onSearchClick}
-          className={`shrink-0 flex flex-col items-center justify-center px-4! py-3! min-w-16 transition-colors border-r border-gray-100 ${
+          className={`shrink-0 flex flex-col items-center justify-center px-4 py-3 min-w-16 transition-colors border-r border-gray-100 ${
             isSearchOpen ? 'text-primary' : 'text-gray-500 hover:text-primary'
           }`}
         >
@@ -52,7 +52,7 @@ export const CategoryTabs = ({
           <button
             key={tab.id}
             onClick={() => handleTabClick(tab.id)}
-            className={`shrink-0 flex flex-col items-center justify-center px-4! py-3! min-w-16 relative transition-colors ${
+            className={`shrink-0 flex flex-col items-center justify-center px-4 py-3 min-w-16 relative transition-colors ${
               selectedCategory === tab.id
                 ? 'text-primary'
                 : 'text-gray-500 hover:text-gray-700'
@@ -62,7 +62,7 @@ export const CategoryTabs = ({
             <div className="relative h-8 flex items-center justify-center mb-1">
               {/* Count Badge (for HOME) */}
               {tab.count && (
-                <span className="bg-primary text-white text-[10px] font-bold px-2! py-1! rounded-full">
+                <span className="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full">
                   {tab.count.toLocaleString()}
                 </span>
               )}
@@ -74,14 +74,14 @@ export const CategoryTabs = ({
 
               {/* Hot Badge (for JACKPOT) */}
               {tab.badge === 'hot' && !tab.count && !tab.icon && (
-                <span className="bg-red-500 text-white text-[10px] font-bold px-2! py-1! rounded-full animate-pulse">
+                <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full animate-pulse">
                   Hot!
                 </span>
               )}
 
               {/* New Badge (for NEW) */}
               {tab.badge === 'new' && !tab.count && !tab.icon && (
-                <span className="bg-green-500 text-white text-[10px] font-bold px-2! py-1! rounded-full">
+                <span className="bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">
                   NEW
                 </span>
               )}

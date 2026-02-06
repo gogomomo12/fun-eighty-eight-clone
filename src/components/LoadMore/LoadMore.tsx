@@ -14,7 +14,7 @@ export const LoadMore = ({
   const percentage = Math.round((currentCount / totalCount) * 100);
 
   return (
-    <div className="px-4! py-6! flex flex-col items-center">
+    <div className="px-4 py-6 flex flex-col items-center">
       {/* Counter */}
       <p className="text-gray-600 text-sm mb-2">
         {currentCount} / {totalCount.toLocaleString()}
@@ -32,7 +32,7 @@ export const LoadMore = ({
       <button
         onClick={onLoadMore}
         disabled={isLoading || currentCount >= totalCount}
-        className="bg-primary text-white px-8! py-3! rounded-full font-medium hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+        className="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
       >
         {isLoading ? (
           <>
