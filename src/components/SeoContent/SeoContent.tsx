@@ -80,7 +80,7 @@ export const SeoContent = () => {
       </div>
 
       {/* CTA Button */}
-      <div className="text-center mb-8">
+      <div className="text-center !my-4">
         <button className="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary-dark transition-colors">
           Register to play live
         </button>
@@ -139,7 +139,7 @@ export const SeoContent = () => {
       </div>
 
       {/* Another CTA */}
-      <div className="text-center mb-8">
+      <div className="text-center !my-4">
         <button className="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary-dark transition-colors">
           Want to know more?
         </button>
@@ -165,7 +165,7 @@ export const SeoContent = () => {
       </p>
 
       {/* Final CTA */}
-      <div className="text-center">
+      <div className="text-center !mt-4">
         <button className="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary-dark transition-colors">
           Register Now
         </button>

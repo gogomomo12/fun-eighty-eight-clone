@@ -21,7 +21,7 @@ export const LoadMore = ({
       </p>
 
       {/* Progress Bar */}
-      <div className="w-full max-w-xs h-1 bg-gray-200 rounded-full mb-4 overflow-hidden">
+      <div className="w-full max-w-xs h-1 bg-gray-200 rounded-full !mb-4 overflow-hidden">
         <div
           className="h-full bg-primary rounded-full transition-all duration-300"
           style={{ width: `${percentage}%` }}

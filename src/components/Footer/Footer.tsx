@@ -31,16 +31,16 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0a1628] text-gray-300 pt-8 pb-52">
+    <footer className="bg-[#0a1628] text-primary pt-8 pb-52">
       {/* Links Section */}
       <div className="px-4 grid grid-cols-2 gap-6 mb-8">
         {/* Information */}
         <div>
-          <h3 className="text-white font-bold mb-3 uppercase text-sm">Information</h3>
+          <h3 className="text-primary font-bold mb-3 uppercase text-sm">Information</h3>
           <ul className="space-y-2">
             {infoLinks.map((link) => (
               <li key={link}>
-                <a href="#" className="text-sm hover:text-primary transition-colors">
+                <a href="#" className="text-sm text-primary hover:opacity-80 transition-opacity">
                   {link}
                 </a>
               </li>
@@ -50,11 +50,11 @@ export const Footer = () => {
 
         {/* Our Sections */}
         <div>
-          <h3 className="text-white font-bold mb-3 uppercase text-sm">Our Sections</h3>
+          <h3 className="text-primary font-bold mb-3 uppercase text-sm">Our Sections</h3>
           <ul className="space-y-2">
             {sectionLinks.map((link) => (
               <li key={link}>
-                <a href="#" className="text-sm hover:text-primary transition-colors">
+                <a href="#" className="text-sm text-primary hover:opacity-80 transition-opacity">
                   {link}
                 </a>
               </li>
@@ -64,11 +64,11 @@ export const Footer = () => {
 
         {/* Help */}
         <div>
-          <h3 className="text-white font-bold mb-3 uppercase text-sm">Help</h3>
+          <h3 className="text-primary font-bold mb-3 uppercase text-sm">Help</h3>
           <ul className="space-y-2">
             {helpLinks.map((link) => (
               <li key={link}>
-                <a href="#" className="text-sm hover:text-primary transition-colors">
+                <a href="#" className="text-sm text-primary hover:opacity-80 transition-opacity">
                   {link}
                 </a>
               </li>
@@ -78,10 +78,10 @@ export const Footer = () => {
 
         {/* Contact */}
         <div>
-          <h3 className="text-white font-bold mb-3 uppercase text-sm">Contact</h3>
+          <h3 className="text-primary font-bold mb-3 uppercase text-sm">Contact</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="text-sm hover:text-primary transition-colors">
+              <a href="#" className="text-sm text-primary hover:opacity-80 transition-opacity">
                 Contact Us
               </a>
             </li>
@@ -107,10 +107,10 @@ export const Footer = () => {
 
       {/* Regional Sites */}
       <div className="px-4 mb-8">
-        <div className="flex flex-wrap justify-center gap-2 text-xs text-gray-400">
+        <div className="flex flex-wrap justify-center gap-2 text-xs text-primary">
           {regionalSites.map((site, index) => (
             <span key={site}>
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="#" className="hover:opacity-80 transition-opacity">
                 {site}
               </a>
               {index < regionalSites.length - 1 && <span className="mx-1">|</span>}
@@ -161,9 +161,9 @@ export const Footer = () => {
 
       {/* Partnership Logo */}
       <div className="px-4 flex justify-center items-center gap-4 mb-6">
-        <div className="text-white font-bold text-xl flex items-center gap-2">
+        <div className="text-primary font-bold text-xl flex items-center gap-2">
           <span className="text-2xl">⚽</span>
-          <span className="border-r border-gray-600 pr-4">Newcastle United</span>
+          <span className="border-r border-primary pr-4">Newcastle United</span>
           <span>
             <span className="text-primary">FUN</span>
             <span className="text-accent">88</span>
@@ -173,13 +173,13 @@ export const Footer = () => {
 
       {/* Trust Badges */}
       <div className="px-4 flex justify-center items-center gap-4 mb-6">
-        <span className="text-xs text-gray-400 border border-gray-600 px-2 py-1 rounded">18+</span>
-        <span className="text-xs text-gray-400 border border-gray-600 px-2 py-1 rounded">🔒 SSL Secure</span>
+        <span className="text-xs text-primary border border-primary px-2 py-1 rounded">18+</span>
+        <span className="text-xs text-primary border border-primary px-2 py-1 rounded">🔒 SSL Secure</span>
       </div>
 
       {/* Legal Disclaimer */}
       <div className="px-4 text-center">
-        <p className="text-xs text-gray-500 leading-relaxed">
+        <p className="text-xs text-primary leading-relaxed">
           WWW.FUN88.COM - Online gaming platform. Games prohibited for minors,
           play responsibly. Do not forget that the main purpose is recreation,
           fun and entertainment.

@@ -69,9 +69,9 @@ export const ProviderFilter = ({
   const displayedProviders = showAll ? providers : providers.slice(0, 6);
 
   return (
-    <div className="bg-gray-50 px-4 py-4">
+    <div className="bg-gray-50 py-4 !space-y-2">
       {/* Header */}
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center justify-between mb-3 px-4">
         <div className="flex items-center gap-2">
           <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -109,7 +109,7 @@ export const ProviderFilter = ({
       {/* Provider Chips */}
       <div
         ref={scrollContainerRef}
-        className="flex gap-2 overflow-x-auto hide-scrollbar pb-1"
+        className="flex gap-2 overflow-x-auto hide-scrollbar pb-1 px-4"
       >
         {/* All Providers Button */}
         <button

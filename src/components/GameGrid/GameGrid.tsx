@@ -84,7 +84,7 @@ export const GameGrid = ({ games, loadingState, error, onRetry }: GameGridProps)
   // Success State - Game Grid
   return (
     <div className="p-4">
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-2">
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
