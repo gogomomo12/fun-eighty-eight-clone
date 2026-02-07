@@ -60,11 +60,14 @@ export const BannerCarousel = () => {
     }
   }, [currentIndex, banners.length]);
 
-  const goToSlide = (index: number) => {
+  const _goToSlide = (index: number) => {
     setCurrentIndex(index);
     stopAutoPlay();
     startAutoPlay();
   };
+
+  // Suppress unused variable warning (kept for future pagination dots)
+  void _goToSlide;
 
   if (isLoading) {
     return (

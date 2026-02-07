@@ -47,10 +47,13 @@ function AppContent() {
     refetch,
     loadMore,
     isLoadingMore,
-    hasMore,
+    hasMore: _hasMore,
     totalCount,
     displayedCount,
   } = useGames(filterParams);
+
+  // Suppress unused variable warning (kept for future use)
+  void _hasMore;
 
   // Handlers
   const handleCategorySelect = (category: Category | null) => {
